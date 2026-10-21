@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#7c3aed" />
+    <title>Tabliczka mnożenia — quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+      <span class="star s1">★</span>
+      <span class="star s2">✦</span>
+      <span class="star s3">★</span>
+      <span class="star s4">✧</span>
+    </div>
+
+    <main class="app">
+      <section id="screen-menu" class="card">
+        <p class="eyebrow">Gotowi na mnożenie?</p>
+        <h1>Tabliczka<br />mnożenia</h1>
+        <p class="lead">Wybierz zakres i sposób odpowiedzi. Potem 10 pytań — i gwiazdki!</p>
+
+        <h2>Zakres wyników</h2>
+        <div class="chip-row" role="group" aria-label="Zakres">
+          <button class="chip selected" data-limit="20" type="button">do 20</button>
+          <button class="chip" data-limit="30" type="button">do 30</button>
+          <button class="chip" data-limit="50" type="button">do 50</button>
+          <button class="chip" data-limit="100" type="button">do 100</button>
+          <button class="chip" data-limit="200" type="button">do 200</button>
+        </div>
+
+        <h2>Jak odpowiadasz?</h2>
+        <div class="mode-row">
+          <button class="mode selected" data-mode="choice" type="button">
+            <span class="mode-icon">ABCD</span>
+            <strong>Wybieram</strong>
+            <span>kilka odpowiedzi</span>
+          </button>
+          <button class="mode" data-mode="input" type="button">
+            <span class="mode-icon">123</span>
+            <strong>Zaawansowany</strong>
+            <span>sam wpisuję wynik</span>
+          </button>
+        </div>
+
+        <button id="btn-start" class="btn-primary" type="button">Start gry!</button>
+      </section>
+
+      <section id="screen-quiz" class="card hidden">
+        <div class="quiz-top">
+          <button id="btn-home" class="btn-ghost" type="button">← menu</button>
+          <div class="stats">
+            <span id="stat-progress">1 / 10</span>
+            <span id="stat-score">★ 0</span>
+          </div>
+        </div>
+        <div class="progress" aria-hidden="true"><div id="progress-bar"></div></div>
+        <p class="question-label">Ile to jest?</p>
+        <p id="question" class="question">2 × 3 = ?</p>
+        <p id="feedback" class="feedback" role="status"></p>
+        <div id="choices" class="choices"></div>
+        <div id="input-panel" class="input-panel hidden">
+          <div id="typed-answer" class="typed-answer" aria-live="polite">?</div>
+          <div class="numpad" id="numpad"></div>
+        </div>
+      </section>
+
+      <section id="screen-result" class="card hidden">
+        <p class="eyebrow" id="result-title">Brawo!</p>
+        <div id="stars" class="stars" aria-hidden="true"></div>
+        <h1 id="result-score">8 / 10</h1>
+        <p id="result-text" class="lead">Świetna robota!</p>
+        <div class="result-actions">
+          <button id="btn-again" class="btn-primary" type="button">Jeszcze raz</button>
+          <button id="btn-menu" class="btn-secondary" type="button">Zmień tryb</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
